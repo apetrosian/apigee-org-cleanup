@@ -1,6 +1,40 @@
-# ApigeeOrgCleanup
+# Apigee Org Cleanup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.4.
+## Usage
+
+0. Install dependencies
+
+```bash
+npm install
+```
+
+1. Create apigee config file.
+
+```bash
+touch apigee.config.js
+```
+
+2. Open and edit `apigee.config.js` file then add your apigee configuration.
+
+```javascript
+var config = {
+  org: 'your-org-name',
+  user: 'your@user.name',
+  password: 'YourPassword'
+}
+
+module.exports = config;
+
+```
+
+3. Start local web server
+
+```bash
+npm start
+```
+
+4. Open your browser and navigate to `http://localhost:3000/`
+
 
 ## Development server
 
