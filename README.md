@@ -2,19 +2,19 @@
 
 ## Usage
 
-0. Install dependencies
+Install dependencies
 
 ```bash
 npm install
 ```
 
-1. Create apigee config file.
+Create apigee config file.
 
 ```bash
 touch apigee.config.js
 ```
 
-2. Open and edit `apigee.config.js` file then add your apigee configuration.
+Open and edit `apigee.config.js` file then add following code and replace string values with your your apigee configuration.
 
 ```javascript
 var config = {
@@ -27,13 +27,13 @@ module.exports = config;
 
 ```
 
-3. Start local web server
+Start local web server
 
 ```bash
 npm start
 ```
 
-4. Open your browser and navigate to `http://localhost:3000/`
+Open a web browser and navigate to `http://localhost:3000/`
 
 
 ## Development server
