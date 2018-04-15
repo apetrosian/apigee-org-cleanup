@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { UserService } from './user.service';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [],
+  providers: [ UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

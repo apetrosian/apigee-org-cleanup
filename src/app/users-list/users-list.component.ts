@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User }    from '../user';
+import {User} from '../user';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-users-list',
@@ -11,15 +12,35 @@ import { User }    from '../user';
 
 export class UsersListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  users: User[] = []
 
-  users: any;
+  constructor(private userService: UserService) { }
+
 
   ngOnInit() {
-    this.http.get('/users').subscribe(data => {
+    this.getUsers()
+  };
 
-        this.users = data;
-      })
-    };
+  
+  getUsers(): void {
+
+    this.userService.getUsers()
+      .subscribe(data => data.forEach(user => {
+        this.users.push(new User(user, false));
+      });
+  }
+
+  deleteUsers(): void {
+    
+    this.users.filter();
+
+    // this.userService.getUsers()
+  }
+
+  selectAll(): void {
+    this.users.forEach( user => {
+      user.selected = true;
+    })
+  }
 
 }

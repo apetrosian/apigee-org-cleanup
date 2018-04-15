@@ -4,9 +4,9 @@
   <ul class="list-group">
     <li class="list-group-item p-3" *ngFor="let user of users">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="user.selected">
         <label class="form-check-label">
-          {{user}}
+          {{user.name}}
         </label>
       </div>
     </li>
