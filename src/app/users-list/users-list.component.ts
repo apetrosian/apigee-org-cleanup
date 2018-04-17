@@ -27,12 +27,12 @@ export class UsersListComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(data => data.forEach(user => {
         this.users.push(new User(user, false));
-      });
+      }));
   }
 
   deleteUsers(): void {
     
-    this.users.filter();
+    // this.users.filter();
 
     // this.userService.getUsers()
   }
