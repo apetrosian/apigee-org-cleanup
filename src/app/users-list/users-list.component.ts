@@ -26,21 +26,37 @@ export class UsersListComponent implements OnInit {
 
     this.userService.getUsers()
       .subscribe(data => data.forEach(user => {
-        this.users.push(new User(user, false));
+        this.users.push(new User(user, false, ''));
       }));
   }
 
   deleteUsers(): void {
     
-    // this.users.filter();
-
-    // this.userService.getUsers()
+    const usersToDelete = this.users.filter(user => user.selected && user.status != 'deleted');
+    
+    this.deleteUsersSync(usersToDelete);
   }
 
   selectAll(): void {
-    this.users.forEach( user => {
-      user.selected = true;
-    })
+    this.users.map( user => user.selected = true );
+  }
+
+
+  private deleteUsersSync(users): void {
+    
+    if ( !users.length ) {
+      return;
+    }
+
+    const user = users.pop();
+
+    this.userService.deleteUser(user.name).subscribe(
+      () => { 
+        user.status = 'deleted';
+        this.deleteUsersSync(users);
+      }
+    )
+    
   }
 
 }
